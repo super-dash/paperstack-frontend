@@ -2,4 +2,57 @@
   width: 100vw;
   height: 100vh;
   background: url('../../images/home-background.png') no-repeat;
+
+  .home-container {
+    width: 47%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    img {
+      width: 270px;
+      margin-top: 50px;
+
+    }
+    .title-box {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 50px 0;
+      text-align: center;
+      font-size: 30px;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      font-family: STKaiti;
+
+      h1 {
+        color: #fff;
+
+        &:nth-child(2) {
+          margin-top: 10px;
+
+        }
+      }
+      h2 {
+        margin-top: 20px;
+        color: rgba(0, 0, 0, 0.81);
+        font-size: 30px;
+      }
+    }
+    .button-box {
+      margin-top: 50px;
+      
+      button {
+        width: 167px;
+        box-sizing: border-box;
+        padding: 16px;
+        margin: 0 10px;
+        border-radius: 20px;
+        background-color: hsla(0, 0%, 100%, .7);
+        font-family: STKaiti;
+        font-size: 25px;
+      }
+    }
+  }
 }
