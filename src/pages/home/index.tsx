@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './style.less';
-import backgroundPng from '../../images/home-background.png';
 import gzhuLogoPng from '../../images/gzhu-logo.png';
 
 class Home extends Component {
   render() {
     return (
-      <div className="p-home">
+      <div className="p-home-page">
         <div className="home-container">
-          <img src={gzhuLogoPng} alt="background.png"/>
+          <img src={gzhuLogoPng} alt="gzhuLogo.png"/>
           <div className="title-box">
             <h1>超自然作业派</h1>
             <h1>Paper Stack</h1>
