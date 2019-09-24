@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './style.less';
 import gzhuLogoPng from '../../images/gzhu-logo.png';
+import { withRouter , RouteComponentProps, Link} from 'react-router-dom';
 
-class Home extends Component {
+interface Props extends RouteComponentProps {}
+
+class Home extends Component<Props> {
   render() {
     return (
       <div className="p-home-page">
@@ -14,7 +17,9 @@ class Home extends Component {
             <h2>博学笃行，与时俱进</h2>
           </div>
           <div className="button-box">
-            <button>登陆</button>
+            <Link to="/login">
+              <button>登陆</button>
+            </Link>
             <button>注册</button>
           </div>
         </div>
@@ -23,4 +28,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
