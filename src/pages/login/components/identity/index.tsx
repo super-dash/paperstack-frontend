@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import './style.less';
 import { withRouter , RouteComponentProps} from 'react-router-dom';
+import 'core-decorators';
+import { autobind } from 'core-decorators';
 
-interface Props extends RouteComponentProps {}
-
-class Identity extends Component<Props> {
-  constructor(props: Props) {
-    super(props);
-    this.turnHome = this.turnHome.bind(this);
-  }
-
+@autobind
+class Identity extends Component<RouteComponentProps> {
   turnHome() {
     this.props.history.push("/");
   }
