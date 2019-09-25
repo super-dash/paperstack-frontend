@@ -2,38 +2,64 @@ import React, { Component } from 'react';
 import './style.less';
 import { Link } from 'react-router-dom';
 import 'core-decorators';
-import { Input, Button } from 'antd';
+import { Form, Input, Button, Icon } from 'antd';
 import { checkEmail } from '../../../../api/modules/login';
+import { FormComponentProps } from 'antd/es/form';
 
-class Land extends Component {
-  componentDidMount() {
-    const temp = '1341514988@qq.com'
-    let a = checkEmail(temp);
-    console.log(a);
+interface Props extends FormComponentProps{}
+
+class Land extends Component<Props, any> {
+  test() {
+    console.log('test');
   }
 
   render() {
+    const { getFieldDecorator } = this.props.form;
+
     return (
-      <div className="land-box">
-        <Input
-          className="land-user-input"
-          placeholder="请输入邮箱"
-          allowClear
-        />
-        <Input.Password
-          className="land-password-input"
-          placeholder="请输入密码"
-          allowClear
-        />
-        <Button className="land-login-btn">登陆</Button>
+      <Form onSubmit={this.test} className="land-box">
+        <Form.Item>
+          {
+            getFieldDecorator('email', {
+              rules: [
+                {
+                  type: 'email',
+                  message: '邮箱格式不正确',
+                },
+                {
+                  required: true,
+                  message: '邮箱不能为空',
+                },
+              ],
+            })(
+              <Input
+                placeholder="请输入邮箱"
+                allowClear
+                onBlur={e => checkEmail(e.target.value)}
+              />
+            )
+          }
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: '密码不能为空' }],
+          })(
+            <Input.Password
+              placeholder="请输入密码"
+              allowClear
+            />
+          )}
+        </Form.Item>
+        <Button className="land-login-btn" htmlType="submit">登陆</Button>
         <div className="land-footer">
           <span className="land-footer-item land-footer-item-hover">
             <Link to="/">返回上层</Link>
           </span>
           <span className="land-footer-item land-footer-item-hover">忘记密码?</span>
         </div>
-      </div>
+      </Form>
     )
   }
 }
-export default Land;
+
+export default Form.create({})(Land);
