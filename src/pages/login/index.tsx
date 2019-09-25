@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.less';
 import gzhuLogoPng from '../../images/gzhu-logo.png';
-import Identity from './components/identity/index';
+import Land from './components/land/index';
 
 class Login extends Component {
   render() {
@@ -11,7 +11,7 @@ class Login extends Component {
           <div className="gzhu-logo-container">
             <img src={gzhuLogoPng} alt="gzhuLogo.png"/>
           </div>
-          <Identity />
+          <Land />
         </div>
       </div>
     )

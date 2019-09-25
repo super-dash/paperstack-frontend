@@ -1,0 +1,55 @@
+.land-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .land-input {
+    width: 70%;
+    height: 50px;
+    background-color: #fff;
+    margin: 10px 0;
+    border-radius: 40px;
+
+    input {
+      padding-left: 60px;
+      background-size: 25px auto !important;
+      background-position: 20px center !important;
+      border: none;
+
+      &:focus {
+        border-radius: 40px;
+      }
+    }
+  }
+
+  .land-user-input {
+    .land-input;
+
+    input {
+      background: url('../../../../images/user.png') no-repeat;
+    }
+  }
+  .land-password-input {
+    .land-input;
+
+    input {
+      background: url('../../../../images/password.png') no-repeat;
+    }
+  }
+  .land-login-btn {
+    .land-input;
+  }
+  .land-footer {
+    display: flex;
+    justify-content: center;
+    
+    .land-footer-item {
+      margin: 70px 10px 0;
+
+      &:hover {
+        border-bottom: 1px solid #000;
+        transition: border .5s;
+      }
+    }
+  }
+}
