@@ -3,8 +3,15 @@ import './style.less';
 import { Link } from 'react-router-dom';
 import 'core-decorators';
 import { Input, Button } from 'antd';
+import { checkEmail } from '../../../../api/modules/login';
 
 class Land extends Component {
+  componentDidMount() {
+    const temp = '1341514988@qq.com'
+    let a = checkEmail(temp);
+    console.log(a);
+  }
+
   render() {
     return (
       <div className="land-box">
