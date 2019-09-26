@@ -14,7 +14,7 @@ class Login extends Component {
           <Land />
         </div>
       </div>
-    )
+    );
   }
 }
 
