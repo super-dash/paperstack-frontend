@@ -20,7 +20,7 @@ class Network {
         return Promise.reject(error.response.data);
       }
       return Promise.reject(error);
-    })
+    });
   }
 
   post(path: string, data?: any) {
@@ -37,7 +37,7 @@ class Network {
         return Promise.reject(error.response.data);
       }
       return Promise.reject(error);
-    })
+    });
   }
 }
 

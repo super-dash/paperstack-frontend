@@ -24,7 +24,7 @@ class Home extends Component<Props> {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
