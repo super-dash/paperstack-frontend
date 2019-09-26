@@ -20,7 +20,9 @@ class Home extends Component<Props> {
             <Link to="/login">
               <button>登陆</button>
             </Link>
-            <button>注册</button>
+            <Link to="/register">
+              <button>注册</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './style.less';
+import '../land/style.less';
 import { Link } from 'react-router-dom';
 import 'core-decorators';
-import { checkEmail } from '../../../../api/modules/login';
 import { Form, Input, Button, Icon } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
+import { checkEmail } from '../../../../api/modules/login';
 
 interface Props extends FormComponentProps {
-  buttonName: string,
+  buttonName: string
 }
 
 class Land extends Component<Props, any> {
@@ -17,7 +17,7 @@ class Land extends Component<Props, any> {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-
+    
     return (
       <Form onSubmit={this.test} className="land-box">
         <Form.Item>
@@ -62,7 +62,7 @@ class Land extends Component<Props, any> {
           <span className="land-footer-item land-footer-item-hover">忘记密码?</span>
         </div>
       </Form>
-    );
+    )
   }
 }
 
