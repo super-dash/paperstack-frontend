@@ -5,8 +5,8 @@ module.exports = {
 	},
 	"extends": [
 		"react-app",
-		"google",
-		"eslint:recommended"
+		// "google",
+		// "eslint:recommended"
 	],
 	"globals": {
 		"Atomics": "readonly",
