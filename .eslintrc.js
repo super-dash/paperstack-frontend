@@ -4,6 +4,7 @@ module.exports = {
 		"es6": true
 	},
 	"extends": [
+		"react-app",
 		"google",
 		"eslint:recommended"
 	],
