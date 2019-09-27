@@ -5,4 +5,4 @@ import 'antd/dist/antd.css';
 
 document.title = '超自然作业派';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App baseUrl={window.location.pathname}/>, document.getElementById('root'));
