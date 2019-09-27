@@ -66,4 +66,4 @@ class Land extends Component<Props, any> {
   }
 }
 
-export default Form.create({})(Land);
+export default Form.create<Props>({})(Land);
