@@ -7,12 +7,11 @@ function getUrl(url: string) {
 
 class Network {
   get(path: string, params?: any) {
-    axios({
+    return axios({
       url: getUrl(path),
       method: 'get',
       params
     }).then(response => {
-      console.log(response);
       return response.data;
     }).catch(error => {
       console.log(error);
@@ -24,12 +23,11 @@ class Network {
   }
 
   post(path: string, data?: any) {
-    axios({
+    return axios({
       url: getUrl(path),
       method: 'post',
       data
     }).then(response => {
-      console.log(response);
       return response.data;
     }).catch(error => {
       console.log(error);
