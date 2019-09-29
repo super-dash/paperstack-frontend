@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import '../land/style.less';
-import { Link } from 'react-router-dom';
-import 'core-decorators';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import { checkEmail, registerEmail } from '../../../../api/modules/login';
-import { RegisterType, RegisterText } from '../../../../enums';
+import { autobind } from 'core-decorators';
 
-interface Props extends FormComponentProps {
+interface Props extends RouteComponentProps, FormComponentProps {
   buttonName: string
 }
 
@@ -30,8 +29,9 @@ const registerEmailRule: object[] = [
   }
 ];
 
+@autobind
 class Register extends Component<Props, any> {
-  test(e: any) {
+  confirmRegister(e: any) {
     e.preventDefault();
     this.props.form.validateFields(async (err, values) => {
       if (err) {
@@ -39,12 +39,12 @@ class Register extends Component<Props, any> {
         return;
       }
 
-      const res:number = (await registerEmail(values)).message;
-      console.log(res);
-      if (res === RegisterType.REGISTER_SUCCESS) {
-        message.success(RegisterText[RegisterType.REGISTER_SUCCESS]);
-      } else if (res === RegisterType.REGISTER_ERROR) {
-        message.error(RegisterText[RegisterType.REGISTER_ERROR]);
+      const res:boolean = (await registerEmail(values)).result;
+      if (res) {
+        message.success('注册成功');
+        this.props.history.push('/login');
+      } else {
+        message.error('注册失败');
       }
     });
   }
@@ -53,7 +53,7 @@ class Register extends Component<Props, any> {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Form onSubmit={e => this.test(e)} className="land-box">
+      <Form onSubmit={e => this.confirmRegister(e)} className="land-box">
         <Form.Item>
           {getFieldDecorator('email', {
             validateFirst: true,
@@ -90,4 +90,4 @@ class Register extends Component<Props, any> {
   }
 }
 
-export default Form.create<Props>({})(Register);
+export default withRouter(Form.create<Props>({})((Register)));

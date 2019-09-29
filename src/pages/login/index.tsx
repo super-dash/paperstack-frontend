@@ -16,7 +16,6 @@ class Login extends Component<RouteComponentProps> {
             <img src={gzhuLogoPng} alt="gzhuLogo.png"/>
           </div>
           { curComponent }
-          {/* <Land buttonName="登陆" /> */}
         </div>
       </div>
     );
