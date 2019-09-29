@@ -5,6 +5,7 @@ import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import { checkEmail, registerEmail } from '../../../../api/modules/login';
 import { autobind } from 'core-decorators';
+import { MESSAGE_TIME } from '../../../../const';
 
 interface Props extends RouteComponentProps, FormComponentProps {
   buttonName: string
@@ -33,18 +34,19 @@ const registerEmailRule: object[] = [
 class Register extends Component<Props, any> {
   confirmRegister(e: any) {
     e.preventDefault();
+
     this.props.form.validateFields(async (err, values) => {
       if (err) {
-        message.error('error');
+        message.error('注册失败', MESSAGE_TIME);
         return;
       }
 
       const res:boolean = (await registerEmail(values)).result;
       if (res) {
-        message.success('注册成功');
+        message.success('注册成功', MESSAGE_TIME);
         this.props.history.push('/login');
       } else {
-        message.error('注册失败');
+        message.error('注册失败', MESSAGE_TIME);
       }
     });
   }
@@ -53,7 +55,7 @@ class Register extends Component<Props, any> {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Form onSubmit={e => this.confirmRegister(e)} className="land-box">
+      <Form onSubmit={(e: any) => this.confirmRegister(e)} className="land-box">
         <Form.Item>
           {getFieldDecorator('email', {
             validateFirst: true,
@@ -64,12 +66,12 @@ class Register extends Component<Props, any> {
               prefix={<Icon type="user" />}
               placeholder="请输入邮箱"
               allowClear
-              onBlur={e => checkEmail(e.target.value)}
             />
           )}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('password', {
+            validateFirst: true,
             rules: [{ required: true, message: '密码不能为空' }],
           })(
             <Input.Password

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './style.less';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import 'core-decorators';
 import { loginUser } from '../../../../api/modules/login';
-import { Form, Input, Button, Icon } from 'antd';
+import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
+import { LoginType, LoginText } from '../../../../enums';
+import { MESSAGE_TIME } from '../../../../const';
 
-interface Props extends FormComponentProps {
+interface Props extends FormComponentProps, RouteComponentProps {
   buttonName: string,
 }
 
@@ -25,12 +27,25 @@ class Land extends Component<Props, any> {
   confirmLogin(e: any) {
     e.preventDefault();
 
-    console.log('test');
     this.props.form.validateFields(async (err, values) => {
-      const res = (await loginUser(values)).result;
+      if (err) {
+        message.error('登陆失败', MESSAGE_TIME);
+        return;
+      }
 
-      console.log(values);
-      console.log(res);
+      const res: LoginType = (await loginUser(values)).result;
+      if (res === LoginType.LOGIN_SUCCESS) {
+        message.success('登陆成功', MESSAGE_TIME);
+        this.props.history.push('/content');
+      } else {
+        this.props.form.setFields({
+          password: {
+            value: values.password,
+            errors: [new Error(LoginText[res])],
+          }
+        });
+        message.error('登陆失败', MESSAGE_TIME);
+      }
     });
   }
 
@@ -42,6 +57,7 @@ class Land extends Component<Props, any> {
         <Form.Item>
           {getFieldDecorator('email', {
             validateFirst: true,
+            validateTrigger: 'onBlur',
             rules: loginEmailRules
           })(
             <Input
@@ -53,6 +69,7 @@ class Land extends Component<Props, any> {
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('password', {
+            validateFirst: true,
             rules: [{ required: true, message: '密码不能为空' }],
           })(
             <Input.Password
@@ -74,4 +91,4 @@ class Land extends Component<Props, any> {
   }
 }
 
-export default Form.create<Props>({})(Land);
+export default withRouter(Form.create<Props>({})(Land));
