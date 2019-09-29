@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './style.less';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import 'core-decorators';
-import { loginUser } from '../../../../api/modules/login';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
-import { LoginType, LoginText } from '../../../../enums';
-import { MESSAGE_TIME } from '../../../../const';
+import { LoginType, LoginText } from '@src/enums';
+import { MESSAGE_TIME } from '@src/const';
+import { loginUser } from '@api/login';
 
 interface Props extends FormComponentProps, RouteComponentProps {
   buttonName: string,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.less';
-import gzhuLogoPng from '../../images/gzhu-logo.png';
-import { withRouter , RouteComponentProps, Link} from 'react-router-dom';
+import gzhuLogoPng from '@images/gzhu-logo.png';
+import { withRouter , RouteComponentProps, Link } from 'react-router-dom';
 
 interface Props extends RouteComponentProps {}
 

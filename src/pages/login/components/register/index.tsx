@@ -3,9 +3,9 @@ import '../land/style.less';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
-import { checkEmail, registerEmail } from '../../../../api/modules/login';
 import { autobind } from 'core-decorators';
-import { MESSAGE_TIME } from '../../../../const';
+import { checkEmail, registerEmail } from '@api/login';
+import { MESSAGE_TIME } from '@src/const';
 
 interface Props extends RouteComponentProps, FormComponentProps {
   buttonName: string

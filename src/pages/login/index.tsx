@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.less';
-import gzhuLogoPng from '../../images/gzhu-logo.png';
+import gzhuLogoPng from '@images/gzhu-logo.png';
 import Land from './components/land/index';
 import Register from './components/register/index';
 import { RouteComponentProps } from 'react-router-dom';
