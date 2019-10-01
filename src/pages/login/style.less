@@ -1,31 +1,30 @@
 .p-login-page {
-  display: flex;
-  justify-content: center;
   width: 100vw;
   height: 100vh;
-  background: url('../../images/home-background.jpg') no-repeat;
+  overflow: hidden;
+  background: url('~@images/home-background.jpg') no-repeat;
   background-size: cover !important;
-}
 
-.login-container {
-  position: relative;
-  margin: 100px auto 0;
-  width: 40%;
-  max-width: 500px;
-  height: 600px;
-  border-radius: 40px;
-  box-shadow: 0 3px 99px 0 rgba(0, 0, 0, 0.16);
-  background-color: rgba(255, 255, 255, 0.5);
+  .login-container {
+    position: relative;
+    margin: 100px auto 0;
+    width: 40%;
+    max-width: 500px;
+    height: 600px;
+    border-radius: 40px;
+    box-shadow: 0 3px 99px 0 rgba(0, 0, 0, 0.16);
+    background-color: rgba(255, 255, 255, 0.5);
 
-  .gzhu-logo-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    .gzhu-logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
 
-    img {
-      width: 270px;
-      // height: 224px;
+      img {
+        width: 270px;
+        margin-top: 30px;
+      }
     }
   }
 }
@@ -35,15 +34,17 @@
     width: 100%;
     height: auto;
     margin-top: 40px;
+    overflow: hidden;
     background-color: inherit;
     box-shadow: none;
     border-radius: 0;
-
+    
     .gzhu-logo-container  {
       margin: 40px 0;
-
+  
       img {
         width: 200px;
+        margin-top: 0;
       }
     }
   }

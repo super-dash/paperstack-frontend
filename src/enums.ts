@@ -2,6 +2,12 @@ type EnumText<T extends number> = {
   [k in T]: string
 }
 
+export enum HomePageCurComponents {
+  HOME = 1, // 首页
+  REGISTER = 2, // 注册
+  LOGIN = 3 // 登陆
+}
+
 export enum LoginType {
   LOGIN_SUCCESS = 1, // 登陆成功
   LOGIN_NO_EXIST = 2, // 邮箱不存在,

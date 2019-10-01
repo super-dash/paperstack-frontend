@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import '../land/style.less';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import { autobind } from 'core-decorators';
 import { checkEmail, registerEmail } from '@api/login';
 import { MESSAGE_TIME } from '@src/const';
+import { HomePageCurComponents } from '@src/enums';
 
 interface Props extends RouteComponentProps, FormComponentProps {
-  buttonName: string
+  changeCurComponent: (curVal: HomePageCurComponents) => void
 }
 
 const registerEmailRule: object[] = [
@@ -53,6 +54,7 @@ class Register extends Component<Props, any> {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { changeCurComponent } = this.props;
 
     return (
       <Form onSubmit={(e: any) => this.confirmRegister(e)} className="land-box">
@@ -81,10 +83,13 @@ class Register extends Component<Props, any> {
             />
           )}
         </Form.Item>
-        <Button className="land-login-btn" htmlType="submit">{this.props.buttonName}</Button>
+        <Button className="land-login-btn" htmlType="submit">注册</Button>
         <div className="land-footer">
-          <span className="land-footer-item land-footer-item-hover">
-            <Link to="/">返回上层</Link>
+          <span
+            className="land-footer-item land-footer-item-hover"
+            onClick={() => changeCurComponent(HomePageCurComponents.HOME)}
+          >
+            返回上层
           </span>
         </div>
       </Form>

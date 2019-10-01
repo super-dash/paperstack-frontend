@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './style.less';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import 'core-decorators';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
-import { LoginType, LoginText } from '@src/enums';
+import { LoginType, LoginText, HomePageCurComponents } from '@src/enums';
 import { MESSAGE_TIME } from '@src/const';
 import { loginUser } from '@api/login';
+import { autobind } from 'core-decorators';
 
 interface Props extends FormComponentProps, RouteComponentProps {
-  buttonName: string,
+  changeCurComponent: (curVal: HomePageCurComponents) => void
 }
 
 const loginEmailRules: object[] = [
@@ -23,6 +23,7 @@ const loginEmailRules: object[] = [
   },
 ];
 
+@autobind
 class Land extends Component<Props, any> {
   confirmLogin(e: any) {
     e.preventDefault();
@@ -51,6 +52,7 @@ class Land extends Component<Props, any> {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { changeCurComponent } = this.props;
 
     return (
       <Form onSubmit={(e: any) => this.confirmLogin(e)} className="land-box">
@@ -79,10 +81,13 @@ class Land extends Component<Props, any> {
             />
           )}
         </Form.Item>
-        <Button className="land-login-btn" htmlType="submit">{this.props.buttonName}</Button>
+        <Button className="land-login-btn" htmlType="submit">登陆</Button>
         <div className="land-footer">
-          <span className="land-footer-item land-footer-item-hover">
-            <Link to="/">返回上层</Link>
+          <span
+            className="land-footer-item land-footer-item-hover"
+            onClick={() => changeCurComponent(HomePageCurComponents.HOME)}
+          >
+            返回上层
           </span>
           <span className="land-footer-item land-footer-item-hover">忘记密码?</span>
         </div>

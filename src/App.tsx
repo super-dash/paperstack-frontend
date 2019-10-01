@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './style.less';
-import home from './pages/home/index';
-import login from './pages/login/index';
+import login from './pages/login';
 
 interface AppProps {
   baseUrl: string
@@ -11,9 +10,7 @@ interface AppProps {
 const App : FunctionComponent<AppProps> = function ({baseUrl}: AppProps) {
   return (
     <Router basename={baseUrl}>
-      <Route path="/" exact component={home} />
-      <Route path="/login" component={login} />
-      <Route path="/register" component={login} />
+      <Route path="/" exact component={login} />
     </Router>
   );
 };
