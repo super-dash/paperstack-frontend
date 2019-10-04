@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './style.less';
 import login from './pages/login';
@@ -8,11 +8,13 @@ interface AppProps {
   baseUrl: string
 }
 
-const App : FunctionComponent<AppProps> = function ({baseUrl}: AppProps) {
+const App = function() {
+  const baseUrl = window.location.href.includes('localhost') ? '' : window.location.pathname;
+
   return (
     <Router basename={baseUrl}>
-      <Route path="/" exact component={home} />
-      {/* <Route path="/" exact component={login} /> */}
+      <Route path="/:id(login)?" exact component={login} />
+      <Route path="/home" exact component={home} />
     </Router>
   );
 };

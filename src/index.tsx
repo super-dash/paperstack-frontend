@@ -14,4 +14,4 @@ document.title = '超自然作业派';
   }
 })();
 
-ReactDOM.render(<App baseUrl={window.location.pathname}/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
