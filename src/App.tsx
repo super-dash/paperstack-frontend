@@ -4,20 +4,15 @@ import './style.less';
 import login from './pages/login';
 import home from './pages/home';
 
-interface AppProps {
-  baseUrl: string
-}
-
 const App = function() {
   const baseUrl = window.location.href.includes('localhost') ? '' : window.location.pathname;
 
   return (
     <Router basename={baseUrl}>
       <Route path="/:id(login)?" exact component={login} />
-      <Route path="/home" exact component={home} />
+      <Route path="/home" component={home} />
     </Router>
   );
 };
-
 
 export default App;

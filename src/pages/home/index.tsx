@@ -1,44 +1,20 @@
 import React, { Component } from 'react';
 import './style.less';
+import { Route, Link, RouteComponentProps } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import { autobind } from 'core-decorators';
+import { siderMenu } from '@src/const';
+import Login from '../login';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
-
-const siderMenu = [
-  {
-    text: '作业',
-    icon: 'book',
-    id: '1',
-    children: [
-      {
-        text: '新建作业',
-        icon: 'plus',
-        id: '1-1'
-      }, {
-        text: '浏览作业',
-        icon: 'read',
-        id: '1-2'
-      }
-    ]
-  }, {
-    text: '班级&小组',
-    icon: 'team',
-    id: '2'
-  }, {
-    text: '回收站',
-    icon: 'delete',
-    id: '3'
-  }
-];
 
 interface State {
   collapsed: boolean,
 }
 
 @autobind
-class Home extends Component<{}, State> {
+class Home extends Component<RouteComponentProps, State> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -53,11 +29,15 @@ class Home extends Component<{}, State> {
   };
 
   createMenuItem(menu: any) {
+    const { match } = this.props;
+
     if (menu.children) {
       const menuItems = (menu.children).map((item: any) => (
         <Menu.Item key={item.id}>
-          <Icon type={item.icon} />
-          <span>{item.text}</span>
+          <Link to={`${match.url}/${item.icon}`}>
+            <Icon type={item.icon} />
+            <span>{item.text}</span>
+          </Link>
         </Menu.Item>
       ));
 
@@ -77,8 +57,10 @@ class Home extends Component<{}, State> {
     } else {
       return (
         <Menu.Item key={menu.id}>
-          <Icon type={menu.icon} />
-          <span>{menu.text}</span>
+          <Link to={`${match.url}/${menu.icon}`}>
+            <Icon type={menu.icon} />
+            <span>{menu.text}</span>
+          </Link>
         </Menu.Item>
       );
     }
@@ -91,6 +73,9 @@ class Home extends Component<{}, State> {
   }
 
   render() {
+    const { match } = this.props;
+    console.log(match);
+
     return (
       <Layout className="p-home">
         <Sider
@@ -111,7 +96,7 @@ class Home extends Component<{}, State> {
 
         <Layout>
           <Content>
-            <div>hello word</div>
+            <Route path={`${match.url}/:id`} component={Login}/>
           </Content>
         </Layout>
       </Layout>
