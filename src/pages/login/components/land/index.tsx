@@ -35,9 +35,14 @@ class Land extends Component<Props, any> {
       }
 
       const res: LoginType = (await loginUser(values)).result;
+      const path = {
+        pathname: '/home',
+        state: values,
+      };
+
       if (res === LoginType.LOGIN_SUCCESS) {
         message.success('登陆成功', MESSAGE_TIME);
-        this.props.history.push('/content');
+        this.props.history.push(path);
       } else {
         this.props.form.setFields({
           password: {

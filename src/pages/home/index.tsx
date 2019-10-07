@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './style.less';
-import { Route, Link, RouteComponentProps } from 'react-router-dom';
+import { Route, Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import { autobind } from 'core-decorators';
 import { siderMenu } from '@src/const';
 import Login from '../login';
+import MenuItem from 'antd/lib/menu/MenuItem';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -74,8 +75,10 @@ class Home extends Component<RouteComponentProps, State> {
 
   render() {
     const { match } = this.props;
-    console.log(match);
 
+    if (!this.props.location.state) {
+      return <Redirect to="/login" />;
+    }
     return (
       <Layout className="p-home">
         <Sider
@@ -84,12 +87,13 @@ class Home extends Component<RouteComponentProps, State> {
           collapsible collapsed={this.state.collapsed}
         >
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <div className="collapsed-btn">
+            <MenuItem className="collapsed-btn" disabled>
               <Icon
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggleSider}
               />
-            </div>
+              <span>Paper Stack</span>
+            </MenuItem>
             {this.createSider()}
           </Menu>
         </Sider>
