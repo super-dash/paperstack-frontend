@@ -4,8 +4,8 @@ import { Route, Link, RouteComponentProps } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import { autobind } from 'core-decorators';
 import { siderMenu } from '@src/const';
-import Login from '../login';
 import MenuItem from 'antd/lib/menu/MenuItem';
+import UserProfile from '@src/pages/user/profile';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -105,7 +105,7 @@ class Home extends Component<RouteComponentProps, State> {
 
         <Layout>
           <Content>
-            <Route path={`${match.url}/:id`} component={Login}/>
+            <Route path={`${match.url}/:id`} component={UserProfile}/>
           </Content>
         </Layout>
       </Layout>
