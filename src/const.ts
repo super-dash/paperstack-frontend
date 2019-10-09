@@ -4,29 +4,29 @@ export const siderMenu = [
   {
     text: '作业',
     icon: 'book',
-    id: '1',
+    path: 'book',
     children: [
       {
         text: '新建作业',
         icon: 'plus',
-        id: '1-1'
+        path: 'plus'
       }, {
         text: '浏览作业',
         icon: 'read',
-        id: '1-2'
+        path: 'read'
       }
     ]
   }, {
     text: '班级&小组',
     icon: 'team',
-    id: '2'
+    path: 'team'
   }, {
     text: '回收站',
     icon: 'delete',
-    id: '3'
+    path: 'recycle'
   }, {
     text: '个人信息',
     icon: 'user',
-    id: '4'
+    path: 'profile'
   }
 ];
