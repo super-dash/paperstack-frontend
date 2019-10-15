@@ -19,7 +19,7 @@ class EditProfile extends Component<Props, State> {
     super(props);
     this.state = {
       loading: false,
-    }
+    };
   }
 
   handleOk() {

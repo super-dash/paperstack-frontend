@@ -24,6 +24,8 @@ class Home extends Component<RouteComponentProps, State> {
   }
 
   componentDidMount() {
+    console.log(this.props.location.state, !sessionStorage.getItem('paper_stack'));
+    console.log(sessionStorage.getItem('paper_stack'), !sessionStorage.getItem('paper_stack'));
     if (!this.props.location.state && !sessionStorage.getItem('paper_stack')) {
       this.props.history.push('/login');
       return;

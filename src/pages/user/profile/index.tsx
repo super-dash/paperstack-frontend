@@ -39,8 +39,8 @@ class UserProfile extends Component<{}, State> {
           handleCancel={this.handleCancel}
         />
       </Fragment>
-    )
+    );
   }
-} 
+}
 
 export default UserProfile;
