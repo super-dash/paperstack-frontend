@@ -3,7 +3,7 @@ import './style.less';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
-import { LoginType, LoginText, HomePageCurComponents } from '@src/enums';
+import { LoginType, HomePageCurComponents } from '@src/enums';
 import { MESSAGE_TIME } from '@src/const';
 import { loginUser } from '@api/login';
 import { autobind } from 'core-decorators';
@@ -34,20 +34,20 @@ class Land extends Component<Props, any> {
         return;
       }
 
-      const res: LoginType = (await loginUser(values)).result;
+      const { code, message: text } = await loginUser(values);
       const path = {
         pathname: '/home',
         state: values,
       };
 
-      if (res === LoginType.LOGIN_SUCCESS) {
+      if (code === LoginType.LOGIN_SUCCESS) {
         message.success('登陆成功', MESSAGE_TIME);
         this.props.history.push(path);
       } else {
         this.props.form.setFields({
           password: {
             value: values.password,
-            errors: [new Error(LoginText[res])],
+            errors: [new Error(text)],
           }
         });
         message.error('登陆失败', MESSAGE_TIME);

@@ -21,7 +21,7 @@ const registerEmailRule: object[] = [
     message: '邮箱不能为空',
   }, {
     validator: async function(rule: any, value: string, callback: any) {
-      const isEmailOk = (await checkEmail(value)).available;
+      const isEmailOk = (await checkEmail(value)).result.emailAvailable;
       if(!isEmailOk) {
         callback('该邮箱已经注册过了');
       } else {
@@ -42,8 +42,8 @@ class Register extends Component<Props, any> {
         return;
       }
 
-      const res:boolean = (await registerEmail(values)).result;
-      if (res) {
+      const res:number = (await registerEmail(values)).code;
+      if (res === 0) {
         message.success('注册成功', MESSAGE_TIME);
         this.props.history.push('/login');
       } else {
