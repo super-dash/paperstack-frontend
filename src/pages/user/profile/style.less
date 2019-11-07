@@ -1,0 +1,80 @@
+.profile-container {
+  margin: 0 100px;
+
+  .porfile-box {
+    display: flex;
+    margin: 50px 0 0;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+
+    .portrait {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      background-color: rgba(0, 0, 0, 0.81);
+      color: white;
+      text-align: center;
+      line-height: 120px;
+    }
+    .user-info {
+      margin-left: 50px;
+      p {
+        margin-bottom: 20px;
+        span {
+          display: inline-block;
+          width: 150px;
+        }
+      }
+    }
+    .edit-info-btn {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .user-info-container {
+    display: flex;
+    padding: 20px 0 40px;
+    box-sizing: border-box;
+    height: calc(100vh - 200px);
+
+    .user-projects {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 10px 20px 0;
+      box-sizing: border-box;
+
+      .project-setting {
+        margin-bottom: 10px;
+        display: flex;
+        span {
+          margin-right: 20px;
+          cursor: pointer;
+
+          &:nth-last-child(2) {
+            margin-left: auto;
+          }
+        }
+      }
+      .project-content {
+        flex: 1;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+      }
+    }
+    .user-setting {
+      width: 200px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      border-left: 1px solid black;
+
+      span {
+        display: block;
+        margin: 20px 0;
+        color: #449df5;
+        cursor: pointer;
+      }
+    }
+  }
+}
