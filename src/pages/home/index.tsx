@@ -20,14 +20,14 @@ class Home extends Component<RouteComponentProps, State> {
     super(props);
     this.state = {
       collapsed: false,
-      curMenu: siderMenu[0].children ? siderMenu[0].children[1].key : siderMenu[0].key
-      // curMenu: siderMenu[0].children ? siderMenu[0].children[0].key : siderMenu[0].key
+      curMenu: siderMenu[0].children ? siderMenu[0].children[0].key : siderMenu[0].key
     };
   }
 
   componentDidMount() {
     console.log(this.props.location.state, !sessionStorage.getItem('paper_stack'));
     console.log(sessionStorage.getItem('paper_stack'), !sessionStorage.getItem('paper_stack'));
+    // 验证有没有登陆，没有的话重定型到登陆页，有的话则保存登陆信息到session storage里，刷新页面才不会丢失登陆态
     if (!this.props.location.state && !sessionStorage.getItem('paper_stack')) {
       this.props.history.push('/login');
       return;
@@ -121,7 +121,7 @@ class Home extends Component<RouteComponentProps, State> {
 
         <Layout>
           <Content>
-            <Route path={`${match.url}/:id`} component={menuComponent[curMenu]}/>
+            <Route path={`${match.url}/:id?`} component={menuComponent[curMenu]}/>
           </Content>
         </Layout>
       </Layout>
