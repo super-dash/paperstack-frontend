@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import { LoginType, HomePageCurComponents } from '@src/enums';
-import { MESSAGE_TIME } from '@src/const';
+import { MESSAGE_TIME } from '@src/const/const';
 import { loginUser } from '@api/login';
 import { autobind } from 'core-decorators';
 

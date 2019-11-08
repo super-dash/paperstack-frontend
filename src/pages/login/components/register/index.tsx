@@ -5,7 +5,7 @@ import { Form, Input, Button, Icon, message } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import { autobind } from 'core-decorators';
 import { checkEmail, registerEmail } from '@api/login';
-import { MESSAGE_TIME } from '@src/const';
+import { MESSAGE_TIME } from '@src/const/const';
 import { HomePageCurComponents } from '@src/enums';
 
 interface Props extends RouteComponentProps, FormComponentProps {

@@ -3,15 +3,15 @@ import './style.less';
 import { Route, Link, RouteComponentProps } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import { autobind } from 'core-decorators';
-import { siderMenu } from '@src/const';
+import { siderMenu, menuComponent } from '@src/const/siderMenu';
 import MenuItem from 'antd/lib/menu/MenuItem';
-import UserProfile from '@src/pages/user/profile';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 
 interface State {
   collapsed: boolean,
+  curMenu: string
 }
 
 @autobind
@@ -19,7 +19,8 @@ class Home extends Component<RouteComponentProps, State> {
   constructor(props: any) {
     super(props);
     this.state = {
-      collapsed: false
+      collapsed: false,
+      curMenu: siderMenu[0].children ? siderMenu[0].children[0].key : siderMenu[0].key
     };
   }
 
@@ -39,6 +40,12 @@ class Home extends Component<RouteComponentProps, State> {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+  }
+
+  changeCurMenu(curVal: string) {
+    this.setState({
+      curMenu: curVal
+    });
   };
 
   createMenuItem(menu: any) {
@@ -46,7 +53,7 @@ class Home extends Component<RouteComponentProps, State> {
 
     if (menu.children) {
       const menuItems = (menu.children).map((item: any) => (
-        <Menu.Item key={item.path}>
+        <Menu.Item key={item.key}  onClick={e => this.changeCurMenu(e.key)}>
           <Link to={`${match.url}/${item.path}`}>
             <Icon type={item.icon} />
             <span>{item.text}</span>
@@ -56,7 +63,7 @@ class Home extends Component<RouteComponentProps, State> {
 
       return (
         <SubMenu
-          key={menu.path}
+          key={menu.key}
           title={
             <span>
               <Icon type={menu.icon} />
@@ -69,7 +76,7 @@ class Home extends Component<RouteComponentProps, State> {
       );
     } else {
       return (
-        <Menu.Item key={menu.path}>
+        <Menu.Item key={menu.key} onClick={e => this.changeCurMenu(e.key)}>
           <Link to={`${match.url}/${menu.path}`}>
             <Icon type={menu.icon} />
             <span>{menu.text}</span>
@@ -87,6 +94,7 @@ class Home extends Component<RouteComponentProps, State> {
 
   render() {
     const { match } = this.props;
+    const { curMenu } = this.state;
 
     return (
       <Layout className="p-home">
@@ -95,7 +103,12 @@ class Home extends Component<RouteComponentProps, State> {
           trigger={null}
           collapsible collapsed={this.state.collapsed}
         >
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultOpenKeys={[`${siderMenu[0].key}`]}
+            defaultSelectedKeys={[`${curMenu}`]}
+          >
             <MenuItem className="collapsed-btn" onClick={this.toggleSider}>
               <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}/>
               <span>Paper Stack</span>
@@ -107,7 +120,7 @@ class Home extends Component<RouteComponentProps, State> {
 
         <Layout>
           <Content>
-            <Route path={`${match.url}/:id`} component={UserProfile}/>
+            <Route path={`${match.url}/:id`} component={menuComponent[curMenu]}/>
           </Content>
         </Layout>
       </Layout>
