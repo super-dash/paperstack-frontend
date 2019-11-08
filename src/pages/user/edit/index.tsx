@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Modal, Button, Form, Input, Select, Radio } from 'antd';
 import { autobind } from 'core-decorators';
 import { FormComponentProps } from 'antd/es/form';
+import { formItemLayout } from '@src/const/const';
 
 const { Option } = Select;
 interface Props extends FormComponentProps {
@@ -35,17 +36,6 @@ class EditProfile extends Component<Props, State> {
     const { loading } = this.state;
     const { modalVisible: visible, handleCancel } = this.props;
     const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 2 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 22 },
-      },
-      hideRequiredMark: true
-    };
 
     return (
       <Modal

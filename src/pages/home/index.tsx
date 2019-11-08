@@ -20,7 +20,8 @@ class Home extends Component<RouteComponentProps, State> {
     super(props);
     this.state = {
       collapsed: false,
-      curMenu: siderMenu[0].children ? siderMenu[0].children[0].key : siderMenu[0].key
+      curMenu: siderMenu[0].children ? siderMenu[0].children[1].key : siderMenu[0].key
+      // curMenu: siderMenu[0].children ? siderMenu[0].children[0].key : siderMenu[0].key
     };
   }
 

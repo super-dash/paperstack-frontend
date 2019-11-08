@@ -15,17 +15,17 @@ export const siderMenu = [
     path: 'book',
     children: [
       {
-        text: '新建作业',
-        icon: 'plus',
-        key: 'plus',
-        path: 'plus',
-        component: Plus,
-      }, {
         text: '浏览作业',
         icon: 'read',
         key: 'read',
         path: 'read',
         component: Read,
+      }, {
+        text: '新建作业',
+        icon: 'plus',
+        key: 'plus',
+        path: 'plus',
+        component: Plus,
       }
     ]
   }, {
