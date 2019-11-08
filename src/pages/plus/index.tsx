@@ -6,7 +6,7 @@ class Plus extends PureComponent {
       <div>
         <p>新建作业</p>
       </div>
-    )
+    );
   }
 }
 

@@ -54,4 +54,4 @@ export const menuComponent:MenuComponent = {};
       menuComponent[item.key] = item.component;
     }
   }
-})(siderMenu)
+})(siderMenu);

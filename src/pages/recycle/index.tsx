@@ -6,7 +6,7 @@ class Recycle extends PureComponent {
       <div>
         <p>回收站</p>
       </div>
-    )
+    );
   }
 }
 

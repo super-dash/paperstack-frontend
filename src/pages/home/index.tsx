@@ -53,7 +53,7 @@ class Home extends Component<RouteComponentProps, State> {
 
     if (menu.children) {
       const menuItems = (menu.children).map((item: any) => (
-        <Menu.Item key={item.key}  onClick={e => this.changeCurMenu(e.key)}>
+        <Menu.Item key={item.key} onClick={e => this.changeCurMenu(e.key)}>
           <Link to={`${match.url}/${item.path}`}>
             <Icon type={item.icon} />
             <span>{item.text}</span>

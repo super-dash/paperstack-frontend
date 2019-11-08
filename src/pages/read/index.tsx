@@ -6,7 +6,7 @@ class Read extends PureComponent {
       <div>
         <p>浏览作业</p>
       </div>
-    )
+    );
   }
 }
 

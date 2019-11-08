@@ -10,5 +10,5 @@ export enum HomePageCurComponents {
 
 export enum LoginType {
   LOGIN_SUCCESS = 0, // 登陆成功
-  LOGIN_Fail = 1, // 登陆失败
+  LOGIN_FAIL = 1, // 登陆失败
 }
