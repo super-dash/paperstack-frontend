@@ -37,8 +37,8 @@ class Homework extends PureComponent<RouteComponentProps, {}> {
           <Icon type="file-text" style={{ fontSize: '90px' }} />
           <p>{item.name}</p>
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
