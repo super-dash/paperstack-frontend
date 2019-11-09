@@ -1,0 +1,41 @@
+.homework-page-container {
+  margin: 30px;
+  background-color: #eee;
+  height: 100%;
+
+  .homework-header {
+    display: flex;
+    align-items: center;
+
+    .go-back-btn {
+      cursor: pointer;
+    }
+    h2 {
+      margin-left: 20px;
+      font-size: 25px;
+      color: rgb(14, 92, 247)
+    }
+  }
+  .homework-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    .homework-item {
+      width: 160px;
+      height: 200px;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 10px 0 #d0d5e6;
+      background-color: #fff;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 2px 2px 0 #d0d5e6;
+        background-color: #f7f8fb;
+      }
+    }
+  }
+}

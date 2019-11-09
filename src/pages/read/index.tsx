@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './style.less';
 import { Button, Icon } from 'antd';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 const mockData = [
   {
@@ -22,7 +23,15 @@ const mockData = [
   }
 ];
 
-class Read extends PureComponent {
+class Read extends PureComponent<RouteComponentProps, {}> {
+  goHomeworkPage(courseObj: any) {
+    const obj = {
+      pathname: '/home/homework',
+      state: courseObj,
+    };
+    this.props.history.push(obj);
+  }
+
   renderCourseItem() {
     return mockData.map(item => {
       return (
@@ -34,7 +43,7 @@ class Read extends PureComponent {
             <span>&nbsp;- {item.teacher}</span>
           </div>
           <div className="visit-course-btn">
-            <Button type="primary">进入</Button>
+            <Button type="primary" onClick={() => this.goHomeworkPage({name: item.name})}>进入</Button>
           </div>
         </div>
       );
@@ -53,4 +62,4 @@ class Read extends PureComponent {
   }
 }
 
-export default Read;
+export default withRouter(Read);

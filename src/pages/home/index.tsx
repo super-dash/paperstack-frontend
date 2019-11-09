@@ -5,6 +5,7 @@ import { Layout, Menu, Icon } from 'antd';
 import { autobind } from 'core-decorators';
 import { siderMenu, menuComponent } from '@src/const/siderMenu';
 import MenuItem from 'antd/lib/menu/MenuItem';
+import Homework from '@src/pages/read/components/homework';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -121,6 +122,7 @@ class Home extends Component<RouteComponentProps, State> {
 
         <Layout>
           <Content>
+            <Route path="/home/homework" exact component={Homework} />
             <Route path={`${match.url}/:id?`} component={menuComponent[curMenu]}/>
           </Content>
         </Layout>
