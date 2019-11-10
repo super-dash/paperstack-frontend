@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './style.less';
-import { Route, Link, RouteComponentProps } from 'react-router-dom';
+import { Route, Link, Switch, RouteComponentProps } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import { autobind } from 'core-decorators';
 import { siderMenu, menuComponent } from '@src/const/siderMenu';
 import MenuItem from 'antd/lib/menu/MenuItem';
 import Homework from '@src/pages/read/components/homework';
+import Detail from '@src/pages/read/components/detail';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -122,8 +123,11 @@ class Home extends Component<RouteComponentProps, State> {
 
         <Layout>
           <Content>
-            <Route path="/home/homework" exact component={Homework} />
-            <Route path={`${match.url}/:id?`} component={menuComponent[curMenu]}/>
+            <Switch>
+              <Route path="/home/homework/detail" exact component={Detail} />
+              <Route path="/home/homework" exact component={Homework} />
+              <Route path={`${match.url}/:id?`} component={menuComponent[curMenu]}/>
+            </Switch>
           </Content>
         </Layout>
       </Layout>

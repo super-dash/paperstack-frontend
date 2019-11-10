@@ -1,0 +1,104 @@
+.detail-page-container {
+  margin: 30px;
+  background-color: #eee;
+  height: 100%;
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+
+    .go-back-btn {
+      cursor: pointer;
+    }
+    h2 {
+      margin-left: 20px;
+      font-size: 25px;
+      color: rgb(14, 92, 247)
+    }
+  }
+  .homework-detail-box {
+    display: flex;
+    margin-top: 30px;
+    height: 200px;
+
+    .detail-box {
+      flex: 1;
+      margin-right: 50px;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
+      background-color: #fff;
+
+      p {
+        margin-bottom: 10px;
+      }
+      .homework-require-box {
+        display: flex;
+        flex-wrap: wrap;
+
+        .homework-require {
+          flex: 1;
+        }
+      }
+    }
+    .upload-box {
+      margin-left: auto;
+      cursor: pointer;
+
+      .upload-btn {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        p {
+          width: 100%;
+          display: inlin-block;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .comments-container {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+
+    .comments-header {
+      display: flex;
+      margin-bottom: 10px;
+      div {
+        margin-left: auto;
+      }
+    }
+    .comments-box {
+      display: flex;
+      padding: 20px 10px 10px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee;
+      &:last-child {
+        border: none;
+      }
+      .commenter-portrait {
+        width: 70px;
+        height: 70px;
+        background-color: #eee;
+        border-radius: 50%;
+      }
+      .commenter-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        width: 120px;
+      }
+      .homework-grade {
+        color: red;
+        margin-left: auto;
+      }
+    }
+  }
+}

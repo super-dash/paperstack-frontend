@@ -33,7 +33,7 @@ class Homework extends PureComponent<RouteComponentProps, {}> {
   renderHomeworkItem() {
     return mockData.map(item => {
       return (
-        <div className="homework-item" key={item.name}>
+        <div className="homework-item" key={item.name} onClick={() => this.goHomeworkDetail({name: item.name})}>
           <Icon type="file-text" style={{ fontSize: '90px' }} />
           <p>{item.name}</p>
         </div>
@@ -41,7 +41,16 @@ class Homework extends PureComponent<RouteComponentProps, {}> {
     });
   }
 
+  goHomeworkDetail(courseObj: any) {
+    const obj = {
+      pathname: '/home/homework/detail',
+      state: courseObj,
+    };
+    this.props.history.push(obj);
+  }
+
   render() {
+    const title = this.props.location.state ? this.props.location.state.name : '';
     return (
       <div className="homework-page-container">
         <div className="homework-header">
@@ -50,7 +59,7 @@ class Homework extends PureComponent<RouteComponentProps, {}> {
               <Icon type="arrow-left" style={{ fontSize: '30px', color: '#000' }} />
             </Link>
           </div>
-          <h2>{this.props.location.state.name}</h2>
+          <h2>{title}</h2>
         </div>
         <div className="homework-box">
           {this.renderHomeworkItem()}
