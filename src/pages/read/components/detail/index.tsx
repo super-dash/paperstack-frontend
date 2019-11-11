@@ -10,7 +10,7 @@ class Homework extends PureComponent<RouteComponentProps, {}> {
       <div className="detail-page-container">
         <div className="detail-header">
           <div className="go-back-btn">
-            <Link to="/home/homework">
+            <Link to="/home/homework/status">
               <Icon type="arrow-left" style={{ fontSize: '30px', color: '#000' }} />
             </Link>
           </div>

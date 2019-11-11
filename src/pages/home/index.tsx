@@ -7,6 +7,7 @@ import { siderMenu, menuComponent } from '@src/const/siderMenu';
 import MenuItem from 'antd/lib/menu/MenuItem';
 import Homework from '@src/pages/read/components/homework';
 import Detail from '@src/pages/read/components/detail';
+import Status from '@src/pages/read/components/status';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -125,6 +126,7 @@ class Home extends Component<RouteComponentProps, State> {
           <Content>
             <Switch>
               <Route path="/home/homework/detail" exact component={Detail} />
+              <Route path="/home/homework/status" exact component={Status} />
               <Route path="/home/homework" exact component={Homework} />
               <Route path={`${match.url}/:id?`} component={menuComponent[curMenu]}/>
             </Switch>

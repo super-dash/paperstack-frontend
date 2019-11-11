@@ -1,0 +1,77 @@
+.status-page-container {
+  margin: 30px;
+  background-color: #eee;
+  height: 100%;
+
+  .status-header {
+    display: flex;
+    align-items: center;
+
+    .go-back-btn {
+      cursor: pointer;
+    }
+    h2 {
+      margin-left: 20px;
+      font-size: 25px;
+      color: rgb(14, 92, 247)
+    }
+  }
+  .homework-status-container {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+
+    .homework-status-box {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      padding: 20px 10px 10px;
+      box-sizing: border-box;
+
+      &:last-child {
+        border: none;
+      }
+      &:hover .enter-homework-btn {
+        visibility: visible !important;
+      }
+
+      .student-portrait {
+        width: 70px;
+        height: 70px;
+        background-color: #eee;
+        border-radius: 50%;
+      }
+      .student-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+      }
+      .homework-status-detail-box {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        .homework-status {
+          margin-right: 20px;
+        }
+        .no-submit-homework {
+          color: red;
+        }
+        .enter-homework-btn {
+          margin-right: 20px;
+          visibility: hidden;
+        }
+        .more-setting-box {
+          display: flex;
+          flex-direction: column;
+
+          button:first-child {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+ 
