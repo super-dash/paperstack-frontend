@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "https://super-dash.github.io/paperstack-frontend/static/css/main.e6e929ed.chunk.css",
+    "main.js": "https://super-dash.github.io/paperstack-frontend/static/js/main.0d26beaf.chunk.js",
+    "main.js.map": "https://super-dash.github.io/paperstack-frontend/static/js/main.0d26beaf.chunk.js.map",
+    "runtime-main.js": "https://super-dash.github.io/paperstack-frontend/static/js/runtime-main.c9c5b668.js",
+    "runtime-main.js.map": "https://super-dash.github.io/paperstack-frontend/static/js/runtime-main.c9c5b668.js.map",
+    "static/css/2.cc82b09a.chunk.css": "https://super-dash.github.io/paperstack-frontend/static/css/2.cc82b09a.chunk.css",
+    "static/js/2.ebecdae3.chunk.js": "https://super-dash.github.io/paperstack-frontend/static/js/2.ebecdae3.chunk.js",
+    "static/js/2.ebecdae3.chunk.js.map": "https://super-dash.github.io/paperstack-frontend/static/js/2.ebecdae3.chunk.js.map",
+    "index.html": "https://super-dash.github.io/paperstack-frontend/index.html",
+    "precache-manifest.5ba9284d045b5e16c43edbb8227077cb.js": "https://super-dash.github.io/paperstack-frontend/precache-manifest.5ba9284d045b5e16c43edbb8227077cb.js",
+    "service-worker.js": "https://super-dash.github.io/paperstack-frontend/service-worker.js",
+    "static/css/2.cc82b09a.chunk.css.map": "https://super-dash.github.io/paperstack-frontend/static/css/2.cc82b09a.chunk.css.map",
+    "static/css/main.e6e929ed.chunk.css.map": "https://super-dash.github.io/paperstack-frontend/static/css/main.e6e929ed.chunk.css.map",
+    "static/media/gzhu-logo.png": "https://super-dash.github.io/paperstack-frontend/static/media/gzhu-logo.8b24e9b7.png",
+    "static/media/style.less": "https://super-dash.github.io/paperstack-frontend/static/media/home-background.403819d6.jpg"
+  }
+}
